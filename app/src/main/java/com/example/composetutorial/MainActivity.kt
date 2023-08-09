@@ -1,5 +1,6 @@
 package com.example.composetutorial
 
+import ComposeTutorialTheme
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,17 +13,15 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.composesample.R
-import com.example.composetutorial.ui.theme.ComposeTutorialTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,7 @@ class MainActivity : ComponentActivity() {
             ComposeTutorialTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting(Message("Android", "Hello folks"))
                 }
@@ -60,7 +59,7 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
-                    .border(1.5.dp, MaterialTheme.colors.primary, CircleShape)
+                    .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
             )
             Spacer(modifier = Modifier.width(8.dp))
 
@@ -72,15 +71,14 @@ class MainActivity : ComponentActivity() {
             Column(modifier = Modifier.clickable { isExpanded = !isExpanded }) {
                 Text(
                     text = data.name,
-                    color = MaterialTheme.colors.secondary,
-                    style = MaterialTheme.typography.subtitle1
+                    color = MaterialTheme.colorScheme.secondary,
+                    style = MaterialTheme.typography.bodySmall
                 )
 
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Surface(
                     shape = MaterialTheme.shapes.medium,
-                    elevation = 1.dp,
                 ) {
                     Text(
                         text = data.message,
@@ -88,7 +86,7 @@ class MainActivity : ComponentActivity() {
                         // If the message is expanded, we display all its content
                         // otherwise we only display the first line
                         maxLines = if (isExpanded) Int.MAX_VALUE else 1,
-                        style = MaterialTheme.typography.body2
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
@@ -101,7 +99,7 @@ class MainActivity : ComponentActivity() {
     fun DefaultPreview() {
         ComposeTutorialTheme {
             Surface(
-                color = MaterialTheme.colors.background
+                color = MaterialTheme.colorScheme.background
             ) {
                 Greeting(Message("Android", "Hello folks"))
             }
@@ -113,7 +111,7 @@ class MainActivity : ComponentActivity() {
     fun nextPreview() {
         ComposeTutorialTheme {
             Surface(
-                modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
+                modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
             ) {
                 Conversation(
                     listOf(
