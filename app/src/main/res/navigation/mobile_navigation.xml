@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2020 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,18 +19,9 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
-    <!--<fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.compose.jetchat.conversation.ConversationFragment"
-        android:label="Conversation" />
-
     <fragment
-        android:id="@+id/nav_profile"
-        android:name="com.example.compose.jetchat.profile.ProfileFragment"
-        android:label="Profile">
-        <argument
-            android:name="userId"
-            app:argType="string" />
-    </fragment>-->
+        android:id="@+id/nav_home"
+        android:name="com.example.composetutorial.MailFragment"
+        android:label="Email" />
 
 </navigation>

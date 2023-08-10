@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ComposeTutorial</string>
     <string name="title_activity_my_smooth">MySmoothActivity</string>
+    <string name="not_available">Functionality currently not available</string>
+    <string name="not_available_subtitle">Grab a beverage and check back later!</string>
 </resources>
