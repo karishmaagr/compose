@@ -1,6 +1,33 @@
 <resources>
     <string name="app_name">ComposeTutorial</string>
     <string name="title_activity_my_smooth">MySmoothActivity</string>
+
+    <string name="emoji_selector_desc">Emoji selector</string>
+    <string name="emoji_selector_bt_desc">Show Emoji selector</string>
+    <string name="dm_desc">Direct Message</string>
+    <string name="attach_photo_desc">Attach Photo</string>
+    <string name="map_selector_desc">Location selector</string>
+    <string name="videochat_desc">Start videochat</string>
+    <string name="textfield_desc">Text input</string>
     <string name="not_available">Functionality currently not available</string>
     <string name="not_available_subtitle">Grab a beverage and check back later!</string>
+    <string name="attached_image">Attached image</string>
+    <string name="search">Search</string>
+    <string name="info">Information</string>
+    <string name="more_options">More options</string>
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="conversations">Conversations</string>
+    <string name="profile">Profile</string>
+    <string name="jumpBottom">Jump to bottom</string>
+    <string name="send">Send</string>
+    <string name="author_me">me</string>
+    <string name="now">8:30 PM</string>
+    <string name="members">%d members</string>
+    <string name="textfield_hint">Message #composers</string>
+    <string name="emojis_label">Emojis</string>
+    <string name="stickers_label">Stickers</string>
 </resources>

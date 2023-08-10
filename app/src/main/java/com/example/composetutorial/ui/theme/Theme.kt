@@ -11,6 +11,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import com.example.composetutorial.ui.theme.*
 
+/**
+ * https://m3.material.io/theme-builder#/custom
+ * We can use this tool to create custom color theme and export color file in android
+ */
 private val DarkColorScheme = darkColorScheme(
     primary = Blue80,
     onPrimary = Blue20,

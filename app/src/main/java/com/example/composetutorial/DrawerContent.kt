@@ -34,25 +34,26 @@ import androidx.compose.ui.unit.dp
 fun SampleDrawer(
     drawerState: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed),
     onItemClicked: (String) -> Unit,
+    onConversationCLick: () -> Unit,
     content: @Composable () -> Unit
 ) {
     ComposeTutorialTheme {
         ModalNavigationDrawer(
-            drawerState = drawerState,
-            drawerContent = {
+            drawerState = drawerState, drawerContent = {
                 ModalDrawerSheet {
                     setDrawerContent(
-                        onItemClicked = onItemClicked
+                        onItemClicked = onItemClicked, onConversationCLick = onConversationCLick
                     )
                 }
-            },
-            content = content
+            }, content = content
         )
     }
 }
 
 @Composable
-fun setDrawerContent(onItemClicked: (String) -> Unit) {
+fun setDrawerContent(
+    onItemClicked: (String) -> Unit, onConversationCLick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,21 +67,27 @@ fun setDrawerContent(onItemClicked: (String) -> Unit) {
             color = MaterialTheme.colorScheme.onSurface,
             text = "Mail"
         )
-        NavItem(
-            R.drawable.baseline_email_24,
+        NavItem(R.drawable.baseline_email_24,
             "inbox",
-            true
-        ) { onItemClicked("inbox") }
-        NavItem(
-            com.google.android.material.R.drawable.ic_clock_black_24dp,
+            true,
+            onItemClicked = { onItemClicked("inbox") },
+            onConversationCLick = { onConversationCLick() })
+        NavItem(com.google.android.material.R.drawable.ic_clock_black_24dp,
             "sent",
-            false
-        ) { onItemClicked("sent") }
+            false,
+            onItemClicked = { onItemClicked("inbox") },
+            onConversationCLick = { onConversationCLick() })
     }
 }
 
 @Composable
-fun NavItem(imageDrawable: Int, text: String, selected: Boolean, onItemClicked: () -> Unit) {
+fun NavItem(
+    imageDrawable: Int,
+    text: String,
+    selected: Boolean,
+    onItemClicked: () -> Unit,
+    onConversationCLick: () -> Unit
+) {
     val background = if (selected) {
         Modifier.background(MaterialTheme.colorScheme.primaryContainer)
     } else {
@@ -93,7 +100,7 @@ fun NavItem(imageDrawable: Int, text: String, selected: Boolean, onItemClicked: 
             .padding(horizontal = 12.dp)
             .clip(CircleShape)
             .then(background)
-            .clickable(onClick = onItemClicked),
+            .clickable(onClick = onConversationCLick),
         verticalAlignment = Alignment.CenterVertically
     ) {
         val iconTint = if (selected) {
@@ -108,14 +115,11 @@ fun NavItem(imageDrawable: Int, text: String, selected: Boolean, onItemClicked: 
             contentDescription = null
         )
         Text(
-            text,
-            style = MaterialTheme.typography.bodyMedium,
-            color = if (selected) {
+            text, style = MaterialTheme.typography.bodyMedium, color = if (selected) {
                 MaterialTheme.colorScheme.primary
             } else {
                 MaterialTheme.colorScheme.onSurface
-            },
-            modifier = Modifier.padding(start = 12.dp)
+            }, modifier = Modifier.padding(start = 12.dp)
         )
     }
 }

@@ -56,9 +56,12 @@ class NavDrawerActivity : AppCompatActivity() {
                     //Mov to selected fragment
                     if (it == "inbox") {
                         findNavController().popBackStack(R.id.nav_home, false)
-                    }else{
-
                     }
+                    scope.launch {
+                        drawerState.close()
+                    }
+                }, onConversationCLick = {
+                    findNavController().navigate(R.id.nav_conversation)
                     scope.launch {
                         drawerState.close()
                     }
